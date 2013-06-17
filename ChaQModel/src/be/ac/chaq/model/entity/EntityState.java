@@ -23,6 +23,11 @@ public abstract class EntityState  {
 		this.predecessor = s.predecessor;
 	}
 	
+	public EntityState(SnapShot s) { 
+		id = new EntityIdentifier();
+		lookup = s; 
+	}
+
 	public void setAppliedChange(Change c)  {
 		if(this.appliedChange != null) {
 			this.appliedChange=c;

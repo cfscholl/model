@@ -16,9 +16,8 @@ public class SimplePropertyChange extends PropertyChange {
 		//updating the Snapshot’s current mapping from the subject’s EntityIdentifier to the new EntityState 
 		currentSnapShot.update(s);
 		//of the change subject, and updating the property’s value in the newly created EntityState.
-		
-		
 		s.setAppliedChange(this);
+		
 		
 		
 	}

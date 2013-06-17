@@ -3,16 +3,25 @@ package be.ac.chaq.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.ac.chaq.model.snapshot.SnapShot;
+
 public class Mail extends EntityState {
-	List<PropertyDescriptor> descriptors; 
-	
+	static List<PropertyDescriptor> descriptors; 
 	
 	Mail(Mail m) {
 		super(m);
-		descriptors = new ArrayList<PropertyDescriptor>();
-		this.descriptors.addAll(m.getPropertyDescriptors());
+		if ( descriptors == null) {
+			descriptors = new ArrayList<PropertyDescriptor>();
+			PropertyDescriptor descriptor = new PropertyDescriptor();
+			descriptor.name = "TO";
+			descriptors.add(descriptor);
+		}
 	}
 	
+	
+	public Mail(SnapShot s) { super(s); }
+
+
 	@Override
 	public EntityState shallowclone() {
 		Mail clone = new Mail(this);
@@ -26,7 +35,8 @@ public class Mail extends EntityState {
 
 	@Override
 	public EntityIdentifier getProperty(PropertyDescriptor descriptor) {
+		
 		return null;
 	}
-
+	
 }
